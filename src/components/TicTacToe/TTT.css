@@ -1,0 +1,278 @@
+*{
+    margin: 0px;
+}
+.head{
+    z-index: 10;
+    color: white;
+    display: grid;
+}
+a.turn{
+    display: inline-block;
+    /* height: 71.6px; */
+}
+.pclass{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    height: 70px;
+}
+.heading{
+    color: aliceblue;
+    background-color: rgb(5, 3, 38);
+    text-align: center;
+    z-index: -10;
+    padding: 20px 0px;
+    font-size: 23px;
+    top:-1px;
+    position: fixed;
+    font-weight: 700;
+    width: 100%;
+}
+.line{
+    width: 10px;
+    background-color: red;
+    position: absolute;
+    border-radius: 10px;
+}
+.help{
+    background-color: black;
+    border: 2px solid rgb(40, 44, 52);
+    border-radius: 8px;
+    margin: 1px 7px;
+    font-size: 70px;
+    padding: 0px 0px 23px;
+}
+.help:hover{
+    background-color: rgb(42, 42, 42);
+    cursor: pointer;
+}
+/* .contain:hover .help{
+    background-color: rgb(42, 42, 42);
+    cursor: pointer;
+} */
+#msign{
+    padding: 0px 13px 20px;
+}#psign{
+    padding:0px 20px 23px;
+}
+.EvaluationBar{
+    height: 45px;
+    width: 510px;
+    /* background-color: white; */
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.win{
+    color: white;
+    top: 8px;
+    position: relative;
+    font-size: 20px;
+}
+#bar2{
+    background-color: rgb(2, 2, 251);
+}
+.evaluation1{
+    color:white;
+    position: absolute;
+    left:35px;
+    top:30px;
+    display: inline-block;
+    font-weight: 500;
+}
+.evaluation2{
+    color:white;
+    position: absolute;
+    right:35px;
+    top:30px;
+    display: inline-block;
+    font-weight: 500;
+}
+.welcomeb {
+    position: absolute;
+    text-align: center;
+    width: 511px;
+    top: max(55%,185px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* display: grid; */
+    background-color: rgb(9, 9, 44);
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #041c61;
+    padding: 20px; /* Added padding for better spacing */
+    place-items: center;
+}
+.GameOver{
+    display: flex;
+    width: 300px;
+    height: 400px;
+    z-index: 4;
+    top: max(25%,150px);
+    border: 10px solid red;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+}
+.aaa{
+    font-size:26px;background-color:white;text-decoration:none;
+    color:black;padding:0px 3px 0px 9px;border-radius:50%;
+}
+.welcome{
+    font-size: 50px;
+    padding: 10px;
+    background-color: black;
+    margin: 20px;
+    border-radius: 10px;
+}
+.playbutton{
+    margin:10px;
+    font-size: 30px;
+    /* width:80px; */
+    text-align: center;
+    color: white;
+    background-color: #025454;
+    padding: 5px 4px;
+    border-radius: 8px;
+    padding-left: 43px;
+}
+.playbutton:hover{
+    background-color: #619494;
+    cursor: pointer;
+}
+.icon-image{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    position: absolute;
+    /* top: 17px; */
+    left: 172px;
+}
+.sign-image{
+    margin:1px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    position: relative;
+}
+.icon-image:hover+.playbutton{
+    background-color: #619494;
+    cursor: pointer;
+}
+.loader {
+    border: 5px solid white;
+    border-top: 5px solid #206b9d;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    animation: spin 2s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+.board{
+    height: 500px;
+    display: flex;
+}
+.boxes{
+    height: 160px;
+    width: 160px;
+    display: flex;
+    cursor: pointer;
+    background-color: black;
+    border: 4px solid rgb(38, 38, 38);
+    border-radius: 12px;
+    margin: 1px 1px;
+}
+.contain{
+    width: 110px;
+    display: inline-block;
+}
+.tools{
+    font-size: 15px;
+}
+.sign-image:hover,.aaa:hover,.icon-image:hover,.tools:hover{
+    cursor: pointer;
+}
+.help-container{
+    width:504px;
+    margin: 19px 10px -3px 2px;;
+}
+#play{
+    padding:5px 10px;
+}
+@media(max-width:750px){
+    #play{
+        padding: calc(5px + 2*(100vw - 750px) / 250) calc(10px + 2*(100vw - 750px) / 250);
+
+    }
+    .heading{
+        font-size: max(calc(23px + 4*(100vw - 750px) / 150), 10px);
+        padding: max(calc(20px + 4*(100vw - 750px) / 150), 10px) 0px;
+    }
+    .pclass{
+        height: calc(70px + 4*(100vw - 750px)/50);
+    }
+    .help-container{
+        margin-top: calc(19px - 2*( 100vw - 750px)/69);;
+    }
+    .EvaluationBar{
+        width: calc(500px + 4*(100vw - 750px)/5);
+        height: calc(45px + (100vw - 750px)/30);
+    }
+    .contain{
+        width: calc(110px + 2*(100vw - 750px) / 12);
+    }
+    .tools{
+        font-size: calc(15px + 2*( 100vw - 750px)/69);
+    }
+    .help{
+        font-size: calc(70px + (100vw - 750px)/6);
+
+    }
+    /* #usign{
+        padding: 0px 4px 10px;
+    } */
+    .help-container{
+        width: calc(504px + 35*(100vw - 750px) / 47);
+    }
+    .welcomeb{
+       width:max(calc(511px + 4*(100vw - 750px)/6),153px);
+       padding: max(calc(20px + 4*( 100vw - 750px)/60),10px);
+    }
+    .GameOver{
+        width: 40vw;
+        height: calc(17vw + 270px);
+    }
+    .board{
+        height: calc(500px + 4*( 100vw - 750px)/5);
+    }
+    .boxes{
+        height: calc(160px + 2*( 100vw - 750px)/8);
+        width: calc(160px + 2*( 100vw - 750px)/8);
+    }
+    .welcome{
+        font-size: max(calc(50px + 2*( 100vw - 750px)/30),14px);
+        margin: calc(20px + 2*(100vw - 750px) / 50);
+    }
+    .playbutton{
+        font-size: max(calc(30px + 2*( 100vw - 750px)/50),11px);
+        padding: 3px 4px 3px max(calc(43px + 2*( 100vw - 750px)/70),31px);
+    }
+    .icon-image{
+        height: max(calc(35px + 2*(100vw - 750px) / 45), 19px);
+        width: max(calc(35px + 2*(100vw - 750px) / 45), 19px);
+        left: max(calc(172px + 8*( 100vw - 750px)/34),44px);
+    }
+    .sign-image{
+        height: calc(35px + 2*( 100vw - 750px)/69);
+        width: calc(35px + 2*( 100vw - 750px)/69);
+    }
+    .aaa,.turn{
+        font-size: calc(25px + 2*( 100vw - 750px)/89);
+    }
+}

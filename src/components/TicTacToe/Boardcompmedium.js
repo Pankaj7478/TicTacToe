@@ -2,37 +2,18 @@ import { useState } from "react";
 import React from "react";
 import "../TicTacToe/TTT.css";
 import circle from "../assets/Tic_tac_toe_circle.jpg";
-import cross from "../assets/Tic_tac_toe_cross.jpg";
+import Board1 from "../TicTacToe/Board"
 import heart from "../assets/Tic_tac_toe_heart.jpg";
 import { useLocation } from "react-router-dom";
+import checkWin from "../assets/line";
 let data=['', '', '', '', '', '', '', '', ''];
-const Board = () => {
+const Board = ({undo,setUndo,i,setevalme,seti,j,setj,setplayer1,setplayer2,setdl1,setdl2,sethl1,sethl2,sethl3,setvl1,setvl2,setvl3,setNew,newgame}) => {
+  setevalme(false);
   const datas=useLocation();
   let rdata=datas.state;
   if(!rdata)rdata=circle;
   const [count, setCount] = useState(0);
   const [lock, setLock] = useState(false);
-
-  const checkWin = (data) => {
-    const winningCombinations = [
-      [0, 1, 2],
-      [0, 3, 6],
-      [0, 4, 8],
-      [1, 4, 7],
-      [2, 4, 6],
-      [2, 5, 8],
-      [3, 4, 5],
-      [6, 7, 8],
-    ];
-
-    for (const combination of winningCombinations) {
-      const [a, b, c] = combination;
-      if (data[a] && data[a] === data[b] && data[a] === data[c]) {
-        return true;
-      }
-    }
-    return false;
-  };
 
   const getRandomEmptyIndex = (newData) => {
     const emptyIndices = newData.map((val, index) => val === '' ? index : null).filter(val => val !== null);
@@ -66,7 +47,6 @@ const Board = () => {
     if(((data[0]===data[3]&&data[3]===rdata)||(data[2]===data[4]&&data[4]===rdata)||(data[7]===data[8]&&data[8]===rdata))&&(!data[6]))randomIndex=6;
     if(((data[1]===data[4]&&data[4]===rdata)||(data[6]===data[8]&&data[8]===rdata))&&(!data[7]))randomIndex=7;
     if(((data[0]===data[4]&&data[4]===rdata)||(data[2]===data[5]&&data[5]===rdata)||(data[6]===data[7]&&data[7]===rdata))&&(!data[8]))randomIndex=8;
-
     if (randomIndex !== undefined) {
         data[randomIndex] = rdata;
         setCount((prevCount) => prevCount + 1);
@@ -79,56 +59,17 @@ const Board = () => {
     if (lock || data[num] !== '') return;
     data[num] = heart;
     setCount(count+1);
-    for(let i=0;i<=8;i++){
-        if(data[i]===heart)console.log(i);
-    }
     if (checkWin(data)) {
         setLock(true);
         return;
     }
-
     setTimeout(() => {
       computerMove(data);
     }, 500);
   };
 
   return (
-    <div className="board">
-      <div className="row1">
-        <div className="boxes" onClick={() => toggle(0)}>
-          {data[0] && <img src={data[0]} alt="player" />}
-        </div>
-        <div className="boxes" onClick={() => toggle(1)}>
-          {data[1] && <img src={data[1]} alt="player" />}
-        </div>
-        <div className="boxes" onClick={() => toggle(2)}>
-          {data[2] && <img src={data[2]} alt="player" />}
-        </div>
-      </div>
-      <div className="row2">
-        <div className="boxes" onClick={() => toggle(3)}>
-          {data[3] && <img src={data[3]} alt="player" />}
-        </div>
-        <div className="boxes" onClick={() => toggle(4)}>
-          {data[4] && <img src={data[4]} alt="player" />}
-        </div>
-        <div className="boxes" onClick={() => toggle(5)}>
-          {data[5] && <img src={data[5]} alt="player" />}
-        </div>
-      </div>
-      <div className="row3">
-        <div className="boxes" onClick={() => toggle(6)}>
-          {data[6] && <img src={data[6]} alt="player" />}
-        </div>
-        <div className="boxes" onClick={() => toggle(7)}>
-          {data[7] && <img src={data[7]} alt="player" />}
-        </div>
-        <div className="boxes" onClick={() => toggle(8)}>
-          {data[8] && <img src={data[8]} alt="player" />}
-        </div>
-      </div>
-    </div>
+    <Board1 data={data} toggle={toggle} checkWin={checkWin}/>
   );
 };
-
 export default Board;

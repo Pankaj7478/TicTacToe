@@ -1,4 +1,4 @@
-import { winmove } from "./Winmove";
+import { winmove } from "./Level2";
 export const handleMove = (move,arr,data,rdata) => {
     let randomIndex=10;
     const possibleIndexes = [0,1,2,3,4,5,6,7,8];

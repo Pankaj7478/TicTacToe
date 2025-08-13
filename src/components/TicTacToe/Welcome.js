@@ -1,7 +1,7 @@
 import React,{useState,useContext} from "react";
 import './TTT.css';
-import vsComp from "./vsComputer_icon.jpg"
-import twop from "./2Player_icon.jpg"
+import vsComp from "../assets/vsComputer_icon.jpg"
+import twop from "../assets/2Player_icon.jpg"
 import circle from "../assets/Tic_tac_toe_circle.jpg"
 import cross from "../assets/Tic_tac_toe_cross.jpg"
 import heart from "../assets/Tic_tac_toe_heart.jpg"

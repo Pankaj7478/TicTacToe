@@ -1,9 +1,8 @@
 import { useState,useEffect, useContext } from "react";
-import React from "react";
 import "../TicTacToe/TTT.css";
 import Board1 from "./Board"
-import checkWin from "../assets/line";
-import computerMove from "./geteasyrand";
+import checkWin from "./Winningline";
+import computerMove from "./Level1";
 import { evaluatebar } from "./EvaluateBar";
 import { StoreContext } from "./Store";
 let data=['', '', '', '', '', '', '', '', ''];

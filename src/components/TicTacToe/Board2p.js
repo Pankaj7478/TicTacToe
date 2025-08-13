@@ -1,7 +1,6 @@
 import { useState,useEffect, useContext} from "react";
-import React from "react";
 import "../TicTacToe/TTT.css"
-import checkWin from "../assets/line";
+import checkWin from "./Winningline";
 import Board1 from "./Board";
 import { StoreContext } from "./Store";
 let data=['','','','','','','','',''];

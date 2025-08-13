@@ -1,5 +1,5 @@
-import { handleMove } from "./Moves";
-import {winmove} from "./Winmove"
+import { handleMove } from "./Level3";
+import {winmove} from "./Level2"
 
 const getRandomEmptyIndex = () => {
     const possibleIndices = [0,2,6,8];

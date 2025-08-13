@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import React from 'react';
-// import './TTT.css'
 const Board=({data,toggle,checkWin})=>{
     let x=checkWin(data);
     useEffect(() => {
